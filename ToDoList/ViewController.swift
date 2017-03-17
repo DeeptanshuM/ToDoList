@@ -13,13 +13,39 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate 
   override func viewDidLoad() {
     super.viewDidLoad()
     // Do any additional setup after loading the view, typically from a nib.
+    tasknameTextField.delegate = self
+    notesTextView.delegate = self
   }
 
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
   }
-
+  
+  //MARK: UITextFieldDelegate
+  func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    //Hide the keyboard
+    textField.resignFirstResponder()
+    return true
+  }
+  
+  
+  func textFieldDidEndEditing(_ textField: UITextField) {
+    //
+  }
+  
+  //MARK: UITextFieldDelegate
+  func textViewShouldReturn(_ textView: UITextView) -> Bool {
+    //Hide the keyboard
+    textView.resignFirstResponder()
+    return true
+  }
+  
+  
+  func textViewDidEndEditing(_ textView: UITextView) {
+    //
+  }
+  
   //MARK: Properties
   @IBOutlet weak var tasknameTextField: UITextField!
   @IBOutlet weak var notesTextView: UITextView!
