@@ -15,7 +15,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ToDoList" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" userLabel="View Controller" customClass="ViewController" customModule="ToDoList" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -28,26 +28,26 @@
                                 <rect key="frame" x="16" y="28" width="343" height="631"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter task name" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="93Z-LF-Wnj" userLabel="TaskNameTextField">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="39.5"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="We8-Qx-6Ce" userLabel="TimeAndDataStackView">
-                                        <rect key="frame" x="0.0" y="38" width="343" height="30"/>
+                                        <rect key="frame" x="0.0" y="47.5" width="343" height="20.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time and data:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gNq-jh-5Ts">
-                                                <rect key="frame" x="0.0" y="0.0" width="159.5" height="30"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="161" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Day, Date, Time" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9Lo-qe-6JP">
-                                                <rect key="frame" x="167.5" y="0.0" width="175.5" height="30"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Day, Date, TIme" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="maV-Sb-JJ7" userLabel="displayTimeandDate">
+                                                <rect key="frame" x="169" y="0.0" width="174" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                     </stackView>
                                     <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="4gF-Vl-etf">
@@ -68,18 +68,30 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7xp-la-FRw">
                                                 <rect key="frame" x="70" y="0.0" width="62.5" height="31"/>
                                                 <state key="normal" title="None"/>
+                                                <connections>
+                                                    <action selector="priorityNoneSelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FiK-I7-o1z"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ySq-dR-MkF">
                                                 <rect key="frame" x="140.5" y="0.0" width="62" height="31"/>
                                                 <state key="normal" title="One"/>
+                                                <connections>
+                                                    <action selector="priorityOneSelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="W4x-qu-RUZ"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dXo-jW-4Nb">
                                                 <rect key="frame" x="210.5" y="0.0" width="62.5" height="31"/>
                                                 <state key="normal" title="Two"/>
+                                                <connections>
+                                                    <action selector="priorityTwoSelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="o4V-QZ-9PH"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RGi-I7-Sdw">
                                                 <rect key="frame" x="281" y="0.0" width="62" height="31"/>
                                                 <state key="normal" title="Three"/>
+                                                <connections>
+                                                    <action selector="priorityThreeSelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qd2-yx-8ed"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -129,6 +141,12 @@
                             <constraint firstItem="r8H-NT-Z5b" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="u5h-4Z-IGV"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="displayToDoTimeLabel" destination="maV-Sb-JJ7" id="MQR-yc-8Y8"/>
+                        <outlet property="notesTextView" destination="Mlc-Zv-vfF" id="KKp-My-GEq"/>
+                        <outlet property="tasknameTextField" destination="93Z-LF-Wnj" id="jFm-LE-3Gm"/>
+                        <outlet property="tododateDatePicker" destination="4gF-Vl-etf" id="ri8-XZ-HXq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
