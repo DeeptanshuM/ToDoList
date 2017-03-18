@@ -9,15 +9,20 @@
 import UIKit
 
 class TasksTableViewController: UITableViewController {
+  
+  
+  
+    //MARK: Properties
+  
+    var tasks = [Task]()
+  
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+      // Load the sample data.
+      loadSampleToDoItems()
+      
     }
 
     override func didReceiveMemoryWarning() {
@@ -92,4 +97,37 @@ class TasksTableViewController: UITableViewController {
     }
     */
 
+  
+  
+  //MARK: Private Methods
+  
+  private func loadSampleToDoItems() {
+    let Task1 = Task()
+    Task1.name = "A"
+    Task1.date = NSDate()
+    Task1.priority = 1
+    Task1.notes = "dsjkndf"
+    
+    let Task2 = Task()
+    Task2.name = "B"
+    Task2.date = NSDate()
+    Task2.priority = 2
+    Task2.notes = "dsjkndf"
+    
+    let Task3 = Task()
+    Task3.name = "C"
+    Task3.date = NSDate()
+    Task3.priority = 3
+    Task3.notes = "dsjkndf"
+    
+    let Task4 = Task()
+    Task4.name = "D"
+    Task4.date = NSDate()
+    Task4.priority = 4
+    Task4.notes = "dsjkndf"
+    
+    tasks += [Task1, Task2, Task3, Task4]
+    
+  }
+  
 }

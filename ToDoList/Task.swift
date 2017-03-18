@@ -7,9 +7,9 @@
 //
 
 import Foundation
-import Realm
+import RealmSwift
 
-class Task: RLMObject {
+class Task: Object {
   dynamic var name = ""
   dynamic var date = NSDate()
   dynamic var priority = 0
