@@ -5,13 +5,12 @@
 //  Created by Deetpanshu Malik on 3/17/17.
 //  Copyright © 2017 DeeptanhuMalik. All rights reserved.
 //
-
 import UIKit
 import os.log
 import RealmSwift
 
 class TaskViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate {
-
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     tasknameTextField.delegate = self
@@ -37,7 +36,7 @@ class TaskViewController: UIViewController, UITextFieldDelegate, UITextViewDeleg
     highestpriorityButton.layer.cornerRadius = 5
     highestpriorityButton.layer.borderColor = highestpriorityButton.currentTitleColor.cgColor
   }
-
+  
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
@@ -54,7 +53,7 @@ class TaskViewController: UIViewController, UITextFieldDelegate, UITextViewDeleg
     updateSaveButtonState()
     navigationItem.title = tasknameTextField.text
   }
-
+  
   func textFieldDidBeginEditing(_ textField: UITextField) {
     // Disable the Save button while editing.
     saveButton.isEnabled = false
@@ -70,7 +69,7 @@ class TaskViewController: UIViewController, UITextFieldDelegate, UITextViewDeleg
   func textViewDidEndEditing(_ textView: UITextView) {
     //
   }
-
+  
   
   //MARK: Properties
   @IBOutlet weak var tasknameTextField: UITextField!
@@ -88,7 +87,7 @@ class TaskViewController: UIViewController, UITextFieldDelegate, UITextViewDeleg
   var priority = 1
   
   // Get the default Realm
-  let realm = try! Realm()
+//  let realm = try! Realm()
   
   //MARK: Navigation
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -107,9 +106,9 @@ class TaskViewController: UIViewController, UITextFieldDelegate, UITextViewDeleg
     task!.priority = priority
     task!.notes = notesTextView.text ?? ""
     
-    try! realm.write {
-      realm.add(task!)
-    }
+//    try! realm.write {
+//      realm.add(task!)
+//    }
     
   }
   
@@ -119,15 +118,15 @@ class TaskViewController: UIViewController, UITextFieldDelegate, UITextViewDeleg
     if isPresentingInAddMealMode {
       dismiss(animated: true, completion: nil)
     }
-  
+      
     else if let owningNavigationController = navigationController{
       owningNavigationController.popViewController(animated: true)
     }
-  
+      
     else {
       fatalError("The MealViewController is not inside a navigation controller.")
     }
-
+    
   }
   
   //MARK: Action
@@ -186,4 +185,3 @@ class TaskViewController: UIViewController, UITextFieldDelegate, UITextViewDeleg
     }
   }
 }
-
