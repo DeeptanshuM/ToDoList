@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import os.log
 
 class TasksTableViewController: UITableViewController {
   
@@ -101,16 +102,39 @@ class TasksTableViewController: UITableViewController {
     }
     */
 
-    /*
+  
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+      super.prepare(for: segue, sender: sender)
+      
+      switch(segue.identifier ?? "") {
+    
+      case "AddItem":
+      os_log("Adding a new task.", log: OSLog.default, type: .debug)
+      
+      
+      case "ShowDetail":
+      guard let mealDetailViewController = segue.destination as? TaskViewController else {
+        fatalError("Unexpected destination: \(segue.destination)")
+      }
+      
+      guard let selectedTaskCell = sender as? TaskTableViewCell else {
+        fatalError("Unexpected sender: \(sender)")
+      }
+      
+      guard let indexPath = tableView.indexPath(for: selectedTaskCell) else {
+        fatalError("The selected cell is not being displayed by the table")
+      }
+      
+      let selectedTask = tasks[indexPath.row]
+      mealDetailViewController.task = selectedTask
+        
+      default:
+      fatalError("Unexpected Segue Identifier; \(segue.identifier)")
+      }
+  }
   
   //MARK: Actions
   
@@ -121,7 +145,7 @@ class TasksTableViewController: UITableViewController {
       // Add a new meal.
       let newIndexPath = IndexPath(row: tasks.count, section: 0)
       
-      tasks.append(task)
+      tasks.append(task!)
       tableView.insertRows(at: [newIndexPath], with: .automatic)
     }
   }

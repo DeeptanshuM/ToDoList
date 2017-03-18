@@ -16,6 +16,14 @@ class TaskViewController: UIViewController, UITextFieldDelegate, UITextViewDeleg
     tasknameTextField.delegate = self
     notesTextView.delegate = self
     
+    // Set up views if editing an existing Task.
+    if let task = task {
+      navigationItem.title = task.name
+      tasknameTextField.text = task.name
+      tododateDatePicker.date = task.date as Date
+      notesTextView.text = task.notes
+    }
+    
     // Enable the Save button only if the user has entered a task name.
     updateSaveButtonState()
     
@@ -75,7 +83,7 @@ class TaskViewController: UIViewController, UITextFieldDelegate, UITextViewDeleg
   @IBOutlet weak var veryhighpriorityButton: UIButton!
   @IBOutlet weak var highestpriorityButton: UIButton!
   
-  var task = Task()
+  var task: Task?
   var priority = 1
   
   //MARK: Navigation
@@ -86,11 +94,14 @@ class TaskViewController: UIViewController, UITextFieldDelegate, UITextViewDeleg
       os_log("The save button was not pressed, cancelling", log: OSLog.default, type: .debug)
       return
     }
+    if(task == nil){
+      task = Task()
+    }
     
-    task.name = tasknameTextField.text ?? ""
-    task.date = tododateDatePicker.date as NSDate
-    task.priority = priority
-    task.notes = notesTextView.text ?? ""
+    task!.name = tasknameTextField.text ?? ""
+    task!.date = tododateDatePicker.date as NSDate
+    task!.priority = priority
+    task!.notes = notesTextView.text ?? ""
     
   }
   
