@@ -34,13 +34,12 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate 
     //
   }
   
-  //MARK: UITextFieldDelegate
-  func textViewShouldReturn(_ textView: UITextView) -> Bool {
+  //MARK: UITextViewDelegate
+  func textViewShouldReturn(_ textView: UITextView, replacementText text: String) -> Bool {
     //Hide the keyboard
     textView.resignFirstResponder()
     return true
   }
-  
   
   func textViewDidEndEditing(_ textView: UITextView) {
     //

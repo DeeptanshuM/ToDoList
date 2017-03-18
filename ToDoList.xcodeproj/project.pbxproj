@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		5685C439874E98C8121571F1 /* Pods_ToDoList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29A541FB4639E2D860FFB78F /* Pods_ToDoList.framework */; };
+		AEBFEFA31E7CB94D0039AA2D /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBFEFA21E7CB94D0039AA2D /* TaskTableViewCell.swift */; };
+		AEBFEFA51E7CBE4C0039AA2D /* TasksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBFEFA41E7CBE4C0039AA2D /* TasksTableViewController.swift */; };
 		AED7C7FE1E7C6C6C00070C43 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED7C7FD1E7C6C6C00070C43 /* AppDelegate.swift */; };
 		AED7C8001E7C6C6C00070C43 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED7C7FF1E7C6C6C00070C43 /* ViewController.swift */; };
 		AED7C8031E7C6C6C00070C43 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AED7C8011E7C6C6C00070C43 /* Main.storyboard */; };
@@ -18,6 +20,8 @@
 /* Begin PBXFileReference section */
 		29A541FB4639E2D860FFB78F /* Pods_ToDoList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ToDoList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F0209DD17D2F5D6C9809C84 /* Pods-ToDoList.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToDoList.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ToDoList/Pods-ToDoList.debug.xcconfig"; sourceTree = "<group>"; };
+		AEBFEFA21E7CB94D0039AA2D /* TaskTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TaskTableViewCell.swift; path = ../Pods/TaskTableViewCell.swift; sourceTree = "<group>"; };
+		AEBFEFA41E7CBE4C0039AA2D /* TasksTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TasksTableViewController.swift; sourceTree = "<group>"; };
 		AED7C7FA1E7C6C6C00070C43 /* ToDoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AED7C7FD1E7C6C6C00070C43 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AED7C7FF1E7C6C6C00070C43 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -71,6 +75,8 @@
 			children = (
 				AED7C7FD1E7C6C6C00070C43 /* AppDelegate.swift */,
 				AED7C7FF1E7C6C6C00070C43 /* ViewController.swift */,
+				AEBFEFA21E7CB94D0039AA2D /* TaskTableViewCell.swift */,
+				AEBFEFA41E7CBE4C0039AA2D /* TasksTableViewController.swift */,
 				AED7C8011E7C6C6C00070C43 /* Main.storyboard */,
 				AED7C8041E7C6C6C00070C43 /* Assets.xcassets */,
 				AED7C8061E7C6C6C00070C43 /* LaunchScreen.storyboard */,
@@ -214,6 +220,8 @@
 			files = (
 				AED7C8001E7C6C6C00070C43 /* ViewController.swift in Sources */,
 				AED7C7FE1E7C6C6C00070C43 /* AppDelegate.swift in Sources */,
+				AEBFEFA51E7CBE4C0039AA2D /* TasksTableViewController.swift in Sources */,
+				AEBFEFA31E7CB94D0039AA2D /* TaskTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
