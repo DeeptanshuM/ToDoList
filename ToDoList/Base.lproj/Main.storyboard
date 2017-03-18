@@ -205,7 +205,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="New Task" id="2Qd-Jd-qpd">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="IWo-2V-9Lj"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="IWo-2V-9Lj">
+                            <connections>
+                                <action selector="cancel:" destination="BYZ-38-t0r" id="xQX-1P-omD"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="7px-Qm-9pg">
                             <connections>
                                 <segue destination="av7-Yp-C6f" kind="unwind" unwindAction="unwindToTaskListWithSender:" id="B2Q-3a-0T1"/>

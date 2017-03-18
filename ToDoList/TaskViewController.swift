@@ -41,7 +41,6 @@ class TaskViewController: UIViewController, UITextFieldDelegate, UITextViewDeleg
     return true
   }
   
-  
   func textFieldDidEndEditing(_ textField: UITextField) {
     updateSaveButtonState()
     navigationItem.title = tasknameTextField.text
@@ -95,6 +94,11 @@ class TaskViewController: UIViewController, UITextFieldDelegate, UITextViewDeleg
     
   }
   
+  @IBAction func cancel(_ sender: UIBarButtonItem) {
+    dismiss(animated: true, completion: nil)
+  }
+  
+  //MARK: Action
   @IBAction func priorityNoneSelected(_ sender: UIButton) {
     updatePriority(val: 1)
   }
