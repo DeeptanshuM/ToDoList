@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  TaskViewController.swift
 //  ToDoList
 //
 //  Created by Deetpanshu Malik on 3/17/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate {
+class TaskViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate {
 
   override func viewDidLoad() {
     super.viewDidLoad()
