@@ -33,24 +33,38 @@ class TasksTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return tasks.count
     }
 
-    /*
+    let cellIdentifier = "TaskTableViewCell"
+    let dateFormatter = DateFormatter()
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
+          as? TaskTableViewCell  else {
+            fatalError("The dequeued cell is not an instance of TableTableViewCell.")
+      }
+      let task = tasks[indexPath.row]
+      cell.nameLabel.text = task.name
+      cell.daydatetimeLabel.text = dateFormatter.string(from: task.date as Date)
+      if(task.priority == 1){
+        cell.priorityLabel.text = ""
+      }
+      if(task.priority == 2){
+        cell.priorityLabel.text = "!"
+      }
+      if(task.priority == 3){
+        cell.priorityLabel.text = "!!"
+      }
+      if(task.priority == 4){
+        cell.priorityLabel.text = "!!!"
+      }
+      return cell
     }
-    */
+ 
 
     /*
     // Override to support conditional editing of the table view.
