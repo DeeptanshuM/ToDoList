@@ -25,7 +25,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2hn-0o-cie" id="uz5-59-f15">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="89"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pW2-hp-zSH" userLabel="priorityLabel">
@@ -75,10 +75,10 @@
             </objects>
             <point key="canvasLocation" x="44" y="146.17691154422789"/>
         </scene>
-        <!--View Controller-->
+        <!--Task View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" userLabel="View Controller" customClass="TaskViewController" customModule="ToDoList" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" userLabel="Task View Controller" customClass="TaskViewController" customModule="ToDoList" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -210,9 +210,14 @@
                     </navigationItem>
                     <connections>
                         <outlet property="displayToDoTimeLabel" destination="maV-Sb-JJ7" id="MQR-yc-8Y8"/>
+                        <outlet property="highestpriorityButton" destination="RGi-I7-Sdw" id="Mzi-uP-efk"/>
+                        <outlet property="highpriorityButton" destination="ySq-dR-MkF" id="31o-7X-dk5"/>
+                        <outlet property="nopriorityButton" destination="7xp-la-FRw" id="KuB-5O-Rmp"/>
                         <outlet property="notesTextView" destination="Mlc-Zv-vfF" id="KKp-My-GEq"/>
+                        <outlet property="saveButton" destination="7px-Qm-9pg" id="6ni-Dq-dRG"/>
                         <outlet property="tasknameTextField" destination="93Z-LF-Wnj" id="jFm-LE-3Gm"/>
                         <outlet property="tododateDatePicker" destination="4gF-Vl-etf" id="ri8-XZ-HXq"/>
+                        <outlet property="veryhighpriorityButton" destination="dXo-jW-4Nb" id="xXe-j5-5ba"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
