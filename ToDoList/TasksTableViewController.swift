@@ -16,7 +16,7 @@ class TasksTableViewController: UITableViewController {
   //MARK: Properties
   
   var tasks = [Task]()
-  
+  var byDate = true
   let realm = try! Realm()
   
   override func viewDidLoad() {
@@ -165,16 +165,30 @@ class TasksTableViewController: UITableViewController {
         }
       
     }
-    tasks.removeAll()
-    tasks += try! Realm().objects(Task.self).sorted(byKeyPath: "date")
-    self.reload.reloadData()
+//    tasks.removeAll()
+//    tasks += try! Realm().objects(Task.self).sorted(byKeyPath: "date")
+//    self.reload.reloadData()
+    reloadView()
+  }
+
+  @IBAction func toggleSortingMethod(_ sender: UIBarButtonItem) {
+    self.byDate = !self.byDate
+    reloadView()
   }
 
 
 
-
 //MARK: Private Methods
-
+  private func reloadView(){
+    tasks.removeAll()
+    if(self.byDate){
+      tasks += try! Realm().objects(Task.self).sorted(byKeyPath: "date")
+    }
+    else{
+    tasks += try! Realm().objects(Task.self).sorted(byKeyPath: "priority", ascending: false)
+    }
+    self.reload.reloadData()
+  }
 private func loadSampleToDoItems() {
   let Task1 = Task()
   Task1.name = "A"

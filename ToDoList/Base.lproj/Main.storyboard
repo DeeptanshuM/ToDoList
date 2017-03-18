@@ -9,6 +9,7 @@
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -25,10 +26,10 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2hn-0o-cie" id="uz5-59-f15">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="89"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="!!!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pW2-hp-zSH" userLabel="priorityLabel">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pW2-hp-zSH" userLabel="priorityLabel">
                                             <rect key="frame" x="8" y="8" width="73" height="73"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="78"/>
@@ -65,11 +66,18 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Your To-Do List" id="mDV-Us-WBa">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="ewU-cI-0t7">
-                            <connections>
-                                <segue destination="mLl-xE-M20" kind="presentation" identifier="AddItem" id="8Yr-jI-jfc"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="add" id="ewU-cI-0t7">
+                                <connections>
+                                    <segue destination="mLl-xE-M20" kind="presentation" identifier="AddItem" id="8Yr-jI-jfc"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="refresh" id="TqF-yW-Oq9">
+                                <connections>
+                                    <action selector="toggleSortingMethod:" destination="PTx-UW-gRg" id="avY-bS-K2J"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="reload" destination="lp8-O7-Zc0" id="QEA-Ll-bhM"/>
@@ -101,16 +109,10 @@
                                         <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                     </textField>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="We8-Qx-6Ce" userLabel="TimeAndDataStackView">
-                                        <rect key="frame" x="0.0" y="8" width="343" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="8" width="343" height="16"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time and data:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gNq-jh-5Ts">
-                                                <rect key="frame" x="0.0" y="0.0" width="161" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Day, Date, TIme" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="maV-Sb-JJ7" userLabel="displayTimeandDate">
-                                                <rect key="frame" x="169" y="0.0" width="174" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="16"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -118,7 +120,7 @@
                                         </subviews>
                                     </stackView>
                                     <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="4gF-Vl-etf">
-                                        <rect key="frame" x="0.0" y="36.5" width="343" height="211.5"/>
+                                        <rect key="frame" x="0.0" y="32" width="343" height="216"/>
                                         <date key="date" timeIntervalSinceReferenceDate="511478575.65503502">
                                             <!--2017-03-17 21:22:55 +0000-->
                                         </date>
@@ -221,7 +223,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="displayToDoTimeLabel" destination="maV-Sb-JJ7" id="MQR-yc-8Y8"/>
                         <outlet property="highestpriorityButton" destination="RGi-I7-Sdw" id="Mzi-uP-efk"/>
                         <outlet property="highpriorityButton" destination="ySq-dR-MkF" id="31o-7X-dk5"/>
                         <outlet property="nopriorityButton" destination="7xp-la-FRw" id="KuB-5O-Rmp"/>
