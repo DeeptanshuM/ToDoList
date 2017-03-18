@@ -54,6 +54,7 @@ class TasksTableViewController: UITableViewController {
     }
     let task = tasks[indexPath.row]
     cell.nameLabel.text = task.name
+    dateFormatter.dateFormat = "EEEE, MM-dd-yyyy HH:mm a"
     cell.daydatetimeLabel.text = dateFormatter.string(from: task.date as Date)
     if(task.priority == 1){
       cell.priorityLabel.text = ""
@@ -151,20 +152,19 @@ class TasksTableViewController: UITableViewController {
       let task = sourceViewController.task
       
       if let selectedIndexPath = tableView.indexPathForSelectedRow {
-        //update an existing to-do task.
-        try! realm.write {
-          realm.add(tasks[selectedIndexPath.row], update: true)
-        }
-        
+        //delete modified task.
+        realm.beginWrite()
+        realm.delete(tasks[selectedIndexPath.row])
+        try! realm.commitWrite()
+        tableView.deleteRows(at: [selectedIndexPath], with: .fade)
       }
-      else{
+      
       // Add a new to-do task.
       try! realm.write {
         realm.add(task!)
         }
-      }
+      
     }
-    
     tasks.removeAll()
     tasks += try! Realm().objects(Task.self).sorted(byKeyPath: "date")
     self.reload.reloadData()

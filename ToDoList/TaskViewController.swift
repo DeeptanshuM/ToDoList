@@ -85,10 +85,7 @@ class TaskViewController: UIViewController, UITextFieldDelegate, UITextViewDeleg
   
   var task: Task?
   var priority = 1
-  
-  // Get the default Realm
-//  let realm = try! Realm()
-  
+   
   //MARK: Navigation
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     super.prepare(for: segue, sender: sender)
@@ -105,11 +102,6 @@ class TaskViewController: UIViewController, UITextFieldDelegate, UITextViewDeleg
     task!.date = tododateDatePicker.date as NSDate
     task!.priority = priority
     task!.notes = notesTextView.text ?? ""
-    
-//    try! realm.write {
-//      realm.add(task!)
-//    }
-    
   }
   
   @IBAction func cancel(_ sender: UIBarButtonItem) {
