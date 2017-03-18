@@ -10,8 +10,9 @@ import Foundation
 import RealmSwift
 
 class Task: Object {
+  //MARK: Properties
   dynamic var name = ""
   dynamic var date = NSDate()
-  dynamic var priority = 0
+  dynamic var priority = 1
   dynamic var notes = ""
 }

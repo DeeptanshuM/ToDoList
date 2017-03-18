@@ -66,12 +66,9 @@ class TaskViewController: UIViewController, UITextFieldDelegate, UITextViewDeleg
   @IBOutlet weak var highpriorityButton: UIButton!
   @IBOutlet weak var veryhighpriorityButton: UIButton!
   @IBOutlet weak var highestpriorityButton: UIButton!
-
   
-  
-  var task: Task?
+  var task = Task()
   var priority = 1
-  
   //MARK: Navigation
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     super.prepare(for: segue, sender: sender)
@@ -81,7 +78,10 @@ class TaskViewController: UIViewController, UITextFieldDelegate, UITextViewDeleg
       return
     }
     
-    //let taskName = tasknameTextField.text ?? ""
+    task.name = tasknameTextField.text ?? ""
+    task.date = tododateDatePicker.date as NSDate
+    task.priority = priority
+    task.notes = notesTextView.text ?? ""
     
   }
   
