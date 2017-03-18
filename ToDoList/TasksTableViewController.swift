@@ -8,15 +8,15 @@
 
 import UIKit
 import os.log
+import RealmSwift
 
 class TasksTableViewController: UITableViewController {
-  
-  
   
   //MARK: Properties
   
   var tasks = [Task]()
   
+  let realm = try! Realm()
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -24,7 +24,8 @@ class TasksTableViewController: UITableViewController {
     navigationItem.leftBarButtonItem = editButtonItem
     
     // Load the sample data.
-    loadSampleToDoItems()
+    //loadSampleToDoItems()
+    tasks += try! Realm().objects(Task.self).sorted(byKeyPath: "date")
     
   }
   
