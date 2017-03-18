@@ -67,7 +67,7 @@
                     <navigationItem key="navigationItem" title="Your To-Do List" id="mDV-Us-WBa">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="ewU-cI-0t7">
                             <connections>
-                                <segue destination="mLl-xE-M20" kind="presentation" id="8Yr-jI-jfc"/>
+                                <segue destination="mLl-xE-M20" kind="presentation" identifier="AddItem" id="8Yr-jI-jfc"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -268,10 +268,10 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5zf-EK-GcV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1014" y="737"/>
+            <point key="canvasLocation" x="1073" y="636"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="fBG-lx-4Ol"/>
+        <segue reference="22N-51-t24"/>
     </inferredMetricsTieBreakers>
 </document>

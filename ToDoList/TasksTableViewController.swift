@@ -142,11 +142,19 @@ class TasksTableViewController: UITableViewController {
     if let sourceViewController = sender.source as? TaskViewController{
       let task = sourceViewController.task
       
-      // Add a new meal.
+      if let selectedIndexPath = tableView.indexPathForSelectedRow {
+        // Update an existing to-do task.
+        tasks[selectedIndexPath.row] = task!
+        tableView.reloadRows(at: [selectedIndexPath], with: .none)
+        
+      }
+      else{
+      // Add a new to-do task.
       let newIndexPath = IndexPath(row: tasks.count, section: 0)
       
       tasks.append(task!)
       tableView.insertRows(at: [newIndexPath], with: .automatic)
+      }
     }
   }
   
