@@ -66,7 +66,7 @@
                     <navigationItem key="navigationItem" title="Your To-Do List" id="mDV-Us-WBa">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="ewU-cI-0t7">
                             <connections>
-                                <segue destination="BYZ-38-t0r" kind="show" id="8Yr-jI-jfc"/>
+                                <segue destination="mLl-xE-M20" kind="presentation" id="8Yr-jI-jfc"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -88,16 +88,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="r8H-NT-Z5b" userLabel="TaskUI">
-                                <rect key="frame" x="16" y="28" width="343" height="631"/>
+                                <rect key="frame" x="16" y="72" width="343" height="587"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter task name" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="93Z-LF-Wnj" userLabel="TaskNameTextField">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="39.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="0.0"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                     </textField>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="We8-Qx-6Ce" userLabel="TimeAndDataStackView">
-                                        <rect key="frame" x="0.0" y="47.5" width="343" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="8" width="343" height="20.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time and data:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gNq-jh-5Ts">
                                                 <rect key="frame" x="0.0" y="0.0" width="161" height="20.5"/>
@@ -114,13 +114,13 @@
                                         </subviews>
                                     </stackView>
                                     <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="4gF-Vl-etf">
-                                        <rect key="frame" x="0.0" y="76" width="343" height="216"/>
+                                        <rect key="frame" x="0.0" y="36.5" width="343" height="211.5"/>
                                         <date key="date" timeIntervalSinceReferenceDate="511478575.65503502">
                                             <!--2017-03-17 21:22:55 +0000-->
                                         </date>
                                     </datePicker>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="NRw-uL-4Pq" userLabel="PriotitySelectStackView">
-                                        <rect key="frame" x="0.0" y="300" width="343" height="31"/>
+                                        <rect key="frame" x="0.0" y="256" width="343" height="31"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Priority" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gt7-BF-dEV">
                                                 <rect key="frame" x="0.0" y="5" width="62" height="21"/>
@@ -175,7 +175,7 @@
                                         </constraints>
                                     </stackView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="onDrag" text="Notes." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Mlc-Zv-vfF" userLabel="NotesTextView">
-                                        <rect key="frame" x="0.0" y="339" width="343" height="292"/>
+                                        <rect key="frame" x="0.0" y="295" width="343" height="292"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
@@ -204,6 +204,10 @@
                             <constraint firstItem="r8H-NT-Z5b" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="u5h-4Z-IGV"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="New Task" id="2Qd-Jd-qpd">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="IWo-2V-9Lj"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="7px-Qm-9pg"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="displayToDoTimeLabel" destination="maV-Sb-JJ7" id="MQR-yc-8Y8"/>
                         <outlet property="notesTextView" destination="Mlc-Zv-vfF" id="KKp-My-GEq"/>
@@ -213,7 +217,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1078" y="146"/>
+            <point key="canvasLocation" x="2016.8" y="146.17691154422789"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Zl9-xY-CKG">
@@ -232,6 +236,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Aip-6g-kTH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-895.20000000000005" y="146.17691154422789"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="WNA-wi-tqk">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mLl-xE-M20" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="P5z-ea-jNW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="22N-51-t24"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5zf-EK-GcV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1077.5999999999999" y="145.27736131934034"/>
         </scene>
     </scenes>
 </document>
