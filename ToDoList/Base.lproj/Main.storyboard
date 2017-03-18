@@ -206,7 +206,11 @@
                     </view>
                     <navigationItem key="navigationItem" title="New Task" id="2Qd-Jd-qpd">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="IWo-2V-9Lj"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="7px-Qm-9pg"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="7px-Qm-9pg">
+                            <connections>
+                                <segue destination="av7-Yp-C6f" kind="unwind" unwindAction="unwindToTaskListWithSender:" id="B2Q-3a-0T1"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="displayToDoTimeLabel" destination="maV-Sb-JJ7" id="MQR-yc-8Y8"/>
@@ -221,6 +225,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="av7-Yp-C6f" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2016.8" y="146.17691154422789"/>
         </scene>

@@ -13,9 +13,11 @@ class TaskViewController: UIViewController, UITextFieldDelegate, UITextViewDeleg
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    // Do any additional setup after loading the view, typically from a nib.
     tasknameTextField.delegate = self
     notesTextView.delegate = self
+    
+    // Enable the Save button only if the user has entered a task name.
+    updateSaveButtonState()
     
     nopriorityButton.layer.cornerRadius = 5
     nopriorityButton.layer.borderColor = nopriorityButton.currentTitleColor.cgColor
@@ -41,7 +43,13 @@ class TaskViewController: UIViewController, UITextFieldDelegate, UITextViewDeleg
   
   
   func textFieldDidEndEditing(_ textField: UITextField) {
-    //
+    updateSaveButtonState()
+    navigationItem.title = tasknameTextField.text
+  }
+
+  func textFieldDidBeginEditing(_ textField: UITextField) {
+    // Disable the Save button while editing.
+    saveButton.isEnabled = false
   }
   
   //MARK: UITextViewDelegate
@@ -54,6 +62,7 @@ class TaskViewController: UIViewController, UITextFieldDelegate, UITextViewDeleg
   func textViewDidEndEditing(_ textView: UITextView) {
     //
   }
+
   
   //MARK: Properties
   @IBOutlet weak var tasknameTextField: UITextField!
@@ -69,6 +78,7 @@ class TaskViewController: UIViewController, UITextFieldDelegate, UITextViewDeleg
   
   var task = Task()
   var priority = 1
+  
   //MARK: Navigation
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     super.prepare(for: segue, sender: sender)
@@ -85,8 +95,6 @@ class TaskViewController: UIViewController, UITextFieldDelegate, UITextViewDeleg
     
   }
   
-  //MARK: Actions
-
   @IBAction func priorityNoneSelected(_ sender: UIButton) {
     updatePriority(val: 1)
   }
@@ -101,6 +109,14 @@ class TaskViewController: UIViewController, UITextFieldDelegate, UITextViewDeleg
   
   @IBAction func priorityThreeSelected(_ sender: UIButton) {
     updatePriority(val: 4)
+  }
+  
+  // MARK: Private Methods
+  
+  private func updateSaveButtonState() {
+    // Disable the Save button if the text field is empty.
+    let text = tasknameTextField.text ?? ""
+    saveButton.isEnabled = !text.isEmpty
   }
   
   private func updatePriority(val: Int) -> Void{
